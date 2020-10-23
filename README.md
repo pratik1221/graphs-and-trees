@@ -1,4 +1,4 @@
-                                            ****2D GRID -BFS**
+                                            ****2D GRID -dFS**
                     
 ll dis[10001][10001]={0};
 ll vis[10001][10001]={0};
@@ -68,3 +68,33 @@ int main()
     
 }
   
+                                                                                          ***dFS***
+   ll dist[1001];
+ll visited[1001]={0};
+vector<ll>arr[1001];
+void dfs(ll x)
+{
+    visited[x]=1;
+    dist[1]=0;
+    queue<ll>q;
+    q.push(x);
+    while(!q.empty())
+    {
+        ll curr=q.front();
+        q.pop();
+        for(auto child:arr[curr])
+        {
+            if(!visited[child])
+            {
+                q.push(child);
+                visited[child]=1;
+                dist[child]=dist[curr]+1;
+                
+                
+            }
+        }
+
+    }
+}                                                                                       
+                                                                                          
+   
